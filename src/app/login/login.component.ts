@@ -42,8 +42,15 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.UserModel._id);
-    console.log(this.UserModel.strName);
+    if (this.LoginModel.email == '' || this.LoginModel.password == '') {
+      Swal.fire({
+            icon: 'warning',
+            title: 'Revisa que ambos campos incluyan datos'
+            });
+    } else {
+      this.getUser();
+    }
+   
   }
 
   getEmpleado() {
@@ -79,17 +86,18 @@ export class LoginComponent {
     this.arrUser = [];
     this.UserService.getUsers().then((user: any) => {
       
-      this.users = user.cont;
+      this.users = user;
+      //console.log("user", this.users);
       
       for (const user of this.users){
         let element = [
 
-          user.idCategoria,
-          user.name.replace(/\:null/gi,':""'),
-          user.email.replace(/\:null/gi,':""'),
-          user.phone,
-          user.age,
-          //platillo.blnActivo ? 'Sí' : 'No',
+          user.strName.replace(/\:null/gi,':""'),
+          user.strEmail.replace(/\:null/gi,':""'),
+          user.password.replace(/\:null/gi,':""'),
+          user.nmbPhone.replace(/\:null/gi,':""'),
+          user.nmbAge,
+          user.blnActivo ? 'Sí' : 'No',
         ];
         this.arrUser.push(element);
         this.arraNewUser = this.arrUser;
@@ -98,7 +106,7 @@ export class LoginComponent {
       
       Toast.fire({
             icon: 'error',
-            title: err.error.msg
+            title: err.error
             });
       this.users = [];
     });
