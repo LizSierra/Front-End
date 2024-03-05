@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { UserModel } from '../../models/user';
-import  { LoginModel } from '../model/login';
-import { UserService } from '../services/user/user.service';
-import { EmpleadoModel } from '../model/empleado';
-import { Empleadoservice } from '../services/empleado/empleado.service';
+import { UserModel } from '../../../models/user';
+import  { LoginModel } from '../../model/login';
+import { UserService } from '../../services/user/user.service';
+import { EmpleadoModel } from '../../model/empleado';
+import { Empleadoservice } from '../../services/empleado/empleado.service';
 /* SWEET ALERT */
 import Swal from 'sweetalert2';
 

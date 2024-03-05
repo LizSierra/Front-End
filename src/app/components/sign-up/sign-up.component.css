@@ -8,7 +8,7 @@
 }
 
 body {
-	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+	background: linear-gradient(90deg, #C7C5F4, #C6A4AD);		
 }
 
 .container {
@@ -19,11 +19,11 @@ body {
 }
 
 .screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	background: linear-gradient(90deg, #8D757C, #C6A4AD);		
 	position: relative;	
 	height: 600px;
-	width: 360px;	
-	box-shadow: 0px 0px 24px #5C5696;
+	width: 600px;	
+	box-shadow: 0px 0px 24px #E2D7BB;
 }
 
 .screen__content {
@@ -60,7 +60,7 @@ body {
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #6C63AC;	
+	background: #A98C95;	
 	top: -172px;
 	right: 0;	
 	border-radius: 32px;
@@ -69,7 +69,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	background: linear-gradient(270deg, #8D757C, #E2C3BB);
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
@@ -78,14 +78,13 @@ body {
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #7E7BB9;	
+	background: #715D63;	
 	top: 420px;
 	right: 50px;	
 	border-radius: 60px;
 }
 
 .login {
-	width: 320px;
 	padding: 30px;
 	padding-top: 156px;
 }
@@ -98,25 +97,25 @@ body {
 .login__icon {
 	position: absolute;
 	top: 30px;
-	color: #7875B5;
+	color: #E2BBC6;
 }
 
 .login__input {
 	border: none;
-	border-bottom: 2px solid #D1D1D4;
+	border-bottom: 2px solid #715D63;
 	background: none;
 	padding: 10px;
-	padding-left: 24px;
 	font-weight: 700;
-	width: 75%;
+	width: 100%;
 	transition: .2s;
+	color: #715D63;
 }
 
 .login__input:active,
 .login__input:focus,
 .login__input:hover {
 	outline: none;
-	border-bottom-color: #6A679E;
+	border-bottom-color: #E2C3BB;
 }
 
 .login__submit {
@@ -131,8 +130,8 @@ body {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	color: #8D757C;
+	box-shadow: 0px 2px 2px #8D757C;
 	cursor: pointer;
 	transition: .2s;
 }
@@ -140,14 +139,20 @@ body {
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {
-	border-color: #6A679E;
+	border-color: #E2C3BB;
 	outline: none;
 }
 
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;
-	color: #7875B5;
+	color: #E2BBC6;
+}
+.sign-up {
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .social-login {	
@@ -170,9 +175,31 @@ body {
 	padding: 20px 10px;
 	color: #fff;
 	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
+	text-shadow: 0px 0px 8px #E2BBC6;
 }
 
 .social-login__icon:hover {
 	transform: scale(1.5);	
 }
+
+.router-sign-up {
+	color: #473138;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 50%;
+	padding: 10px;
+	height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  * {
+	box-sizing: border-box;
+  }
