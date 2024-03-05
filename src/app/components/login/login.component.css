@@ -186,3 +186,7 @@ body {
 .router-sign-up {
 	color: #473138;
 }
+
+.router-sign-up:hover {
+	color: #291b1f ;
+}

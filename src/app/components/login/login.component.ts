@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserModel } from '../../../models/user';
+import { UserModel } from 'src/app/model/user';
 import  { LoginModel } from '../../model/login';
 import { UserService } from '../../services/user/user.service';
 import { EmpleadoModel } from '../../model/empleado';

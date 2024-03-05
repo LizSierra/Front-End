@@ -102,13 +102,13 @@ body {
 
 .login__input {
 	border: none;
-	border-bottom: 2px solid #715D63;
+	border-bottom: 2px solid #866b73;
 	background: none;
 	padding: 10px;
 	font-weight: 700;
 	width: 100%;
 	transition: .2s;
-	color: #715D63;
+	color: #866b73;
 }
 
 .login__input:active,
@@ -136,10 +136,15 @@ body {
 	transition: .2s;
 }
 
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
-	border-color: #E2C3BB;
+.login__submit:disabled {
+	border-color: #f5d3cb;
+	color: #d8b8b1;
+	outline: none;
+}
+.login__submit:enabled,
+.login__submit:active {
+	border-color: #8D757C;
+	color: #665157;
 	outline: none;
 }
 
@@ -153,6 +158,10 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.router-sign-up:hover {
+	color: #291b1f ;
 }
 
 .social-login {	

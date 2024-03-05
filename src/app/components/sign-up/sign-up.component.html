@@ -2,40 +2,41 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" [formGroup]="formData" (ngSubmit)="addNewUser(this.formData)">
                 <div class="row">
 				<div class="column">
                     <div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input class="login__input" type="text"  name="name" placeholder="Nombre"  required="required">
+					<input class="login__input"  type="text" placeholder="Nombre" formControlName="strName" required>
+					<!-- <span *ngIf="this.formData.get('strName')?.errors?.['required']">(*Requerido)</span> -->
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input class="login__input" type="text"  name="email" placeholder="Correo"  required="required">
+					<input class="login__input" type="text" placeholder="Correo" formControlName="strEmail" required>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" type="password"  name="password" placeholder="Contraseña" required="required">
+					<input type="password" class="login__input" placeholder="Contraseña" formControlName="password" required>
 				</div>
             </div>
             <div class="column">
                 <div class="login__field">
                 <i class="login__icon fas fa-user"></i>
-                <input class="login__input" type="number"  name="age" placeholder="Edad"  required="required">
+                <input class="login__input" type="number" placeholder="Edad" formControlName="nmbAge" required>
             </div>
             <div class="login__field">
                 <i class="login__icon fas fa-user"></i>
-                <input class="login__input" type="number"  name="phone" placeholder="Celular"  required="required">
+                <input class="login__input" type="number" placeholder="Teléfono celular" formControlName="nmbPhone" required>
             </div>
             <div class="login__field">
                 <i class="login__icon fas fa-lock"></i>
-                <input type="password" class="login__input" type="password"  name="password" placeholder="Repetir contraseña" required="required">
+                <input type="password" class="login__input" placeholder="Repetir contraseña" formControlName="password" required>
             </div>
         </div>
             </div>
 
-				<button class="button login__submit" type="submit" >
-					<span class="button__text">Registrar</span>
+				<button class="button login__submit" type="submit" [disabled]="formData.invalid" >
+					<span class="button__text" >Registrar</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>				
 			</form>
@@ -48,7 +49,7 @@
 				</div>
 			</div> -->
             <div class="sign-up">
-				<h6>¿Ya tienes una cuenta? <a routerLink="/" class="router-sign-up">INICIAR SESIÓN</a></h6>
+				<h6 >¿Ya tienes una cuenta? <a routerLink="/" class="router-sign-up">INICIAR SESIÓN</a></h6>
 			</div>
 		</div>
 		<div class="screen__background">

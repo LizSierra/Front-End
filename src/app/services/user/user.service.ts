@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
-import { UserModel } from '../../../models/user';
+import { UserModel } from 'src/app/model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,11 @@ export class UserService {
   }
   
   getUsersId(idUser: String) {
-    return this.http.get(`${this.url}/get/${idUser}`).toPromise();
+    return this.http.get(`${this.url}/${idUser}`).toPromise();
    }
    
    addUsers(user: UserModel) {
-     return this.http.post(`${this.url}/add`, user).toPromise();
+     return this.http.post(`${this.url}/`, user).toPromise();
    }
 
    /*actualizarPlatillos(idPlatillo: String, platillo: PlatilloModel) {
