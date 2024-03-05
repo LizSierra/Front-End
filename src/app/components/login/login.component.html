@@ -1,16 +1,16 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" [formGroup]="formData" (ngSubmit)="login(this.formData)">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input [(ngModel)]="this.LoginModel.email" class="login__input" type="text"  name="email" placeholder="Correo"  required="required">
+					<input type="text" class="login__input" placeholder="Correo electrónico*" formControlName="strEmail" required>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" [(ngModel)]="this.LoginModel.password" class="login__input" type="password"  name="password" placeholder="Contraseña" required="required">
+					<input type="password" class="login__input" placeholder="Contraseña*" formControlName="password" required>
 				</div>
-				<button class="button login__submit" type="submit" (click)="login()">
+				<button class="button login__submit" type="submit" [disabled]="formData.invalid" >
 					<span class="button__text">INICIAR SESIÓN</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>				

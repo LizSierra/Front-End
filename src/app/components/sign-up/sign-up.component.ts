@@ -22,17 +22,23 @@ export class SignUpComponent {
   UserModel = new UserModel();
   users: UserModel = new UserModel();
   formData = new FormGroup({
-    strName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-    strEmail: new FormControl('', [Validators.required, Validators.email]),
+    strName: new FormControl(this.UserModel.strName, [Validators.required, Validators.maxLength(50)]),
+    strEmail: new FormControl(this.UserModel.strEmail, [Validators.required, Validators.email]),
     nmbAge: new FormControl('', [Validators.required, Validators.maxLength(2)]),
-    nmbPhone: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    password: new FormControl('', [Validators.required, Validators.maxLength(500)])
+    nmbPhone: new FormControl(this.UserModel.nmbPhone, [Validators.required, Validators.minLength(7)]),
+    password: new FormControl(this.UserModel.password, [Validators.required, Validators.maxLength(50)])
   });
   constructor(private UserService: UserService, private router: Router) { }
 
   addNewUser(data: any){
-    console.log(this.formData);
-    
+    console.log(this.UserModel);
+    if (!data.valid) {
+      Toast.fire({
+        title:'Revisa todos tus campos',
+        icon: 'error',
+        iconColor: '#473138'}); 
+    }
+    else {
   //   this.UserService.addUsers(this.users).then((resp: any) => {
     // this.router.navigate(['/']);
     Toast.fire({
@@ -46,6 +52,6 @@ export class SignUpComponent {
   //   title: err.error.msg
   //   });
   // });
-
+    }
   }
 }

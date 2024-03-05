@@ -7,31 +7,31 @@
 				<div class="column">
                     <div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input class="login__input"  type="text" placeholder="Nombre" formControlName="strName" required>
+					<input class="login__input"  type="text" placeholder="Nombre*" formControlName="strName" required>
 					<!-- <span *ngIf="this.formData.get('strName')?.errors?.['required']">(*Requerido)</span> -->
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input class="login__input" type="text" placeholder="Correo" formControlName="strEmail" required>
+					<input class="login__input" type="text" placeholder="Correo electrónico*" formControlName="strEmail" required>
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Contraseña" formControlName="password" required>
+					<input type="password" class="login__input" placeholder="Contraseña*" formControlName="password" required>
 				</div>
             </div>
             <div class="column">
                 <div class="login__field">
                 <i class="login__icon fas fa-user"></i>
-                <input class="login__input" type="number" placeholder="Edad" formControlName="nmbAge" required>
+                <input class="login__input" type="number" placeholder="Edad*" formControlName="nmbAge" minlength="2" required>
             </div>
             <div class="login__field">
                 <i class="login__icon fas fa-user"></i>
-                <input class="login__input" type="number" placeholder="Teléfono celular" formControlName="nmbPhone" required>
+                <input class="login__input" type="number" placeholder="Teléfono celular*" formControlName="nmbPhone" minlength="7" required>
             </div>
-            <div class="login__field">
+            <!-- <div class="login__field">
                 <i class="login__icon fas fa-lock"></i>
-                <input type="password" class="login__input" placeholder="Repetir contraseña" formControlName="password" required>
-            </div>
+                <input type="password" class="login__input" placeholder="Repetir contraseña*" formControlName="password" required>
+            </div> -->
         </div>
             </div>
 

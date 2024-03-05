@@ -136,13 +136,13 @@ body {
 	transition: .2s;
 }
 
-.login__submit:disabled {
+.login__submit:disabled,
+.login__submit:active {
 	border-color: #f5d3cb;
 	color: #d8b8b1;
 	outline: none;
 }
-.login__submit:enabled,
-.login__submit:active {
+.login__submit:enabled {
 	border-color: #8D757C;
 	color: #665157;
 	outline: none;

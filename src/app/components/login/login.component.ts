@@ -6,6 +6,7 @@ import { EmpleadoModel } from '../../model/empleado';
 import { Empleadoservice } from '../../services/empleado/empleado.service';
 /* SWEET ALERT */
 import Swal from 'sweetalert2';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 const Toast = Swal.mixin({
   toast: true,
@@ -21,7 +22,7 @@ const Toast = Swal.mixin({
 })
 export class LoginComponent {
 
-  UserModel = new UserModel();
+  UserM : UserModel =new UserModel();
   EmpleadoModel = new EmpleadoModel();
   LoginModel =  new LoginModel();
   /*email: string;*/
@@ -29,6 +30,7 @@ export class LoginComponent {
 
   arrUser:any[] = [];
   users: any;
+  user: any;
   idUser: string = "";
   arraNewUser: any[] = [];
   arrEmpleado:any[] = [];
@@ -36,21 +38,36 @@ export class LoginComponent {
   idEmpleado: string = "";
   arrNewEmpleado: any[] = [];
 
+  formData = new FormGroup({
+    strEmail: new FormControl(this.UserM.strEmail, [Validators.required, Validators.email]),
+    password: new FormControl(this.UserM.password, [Validators.required, Validators.maxLength(50)])
+  });
+
   ngOnInit(): void {
     this.getEmpleado();
     this.arrEmpleado = [];
   }
 
-  login() {
-    if (this.LoginModel.email == '' || this.LoginModel.password == '') {
+  login(formData: FormGroup) {
+    this.UserM = formData.value;
+    console.log(this.UserM);
+    if (this.UserM.strEmail == '' || this.UserM.password == '') {
       Swal.fire({
             icon: 'warning',
-            title: 'Revisa que ambos campos incluyan datos'
+            title: 'Revisa tus campos'
             });
     } else {
-      this.getUser();
+      this.getUserLogin(this.UserM);
     }
    
+  }
+
+  getUserLogin(data: UserModel){
+    this.UserService.UserLogin(data.strEmail, data.password).then((data: any) => {
+      this.user = data;
+      console.log(data);
+      
+    });
   }
 
   getEmpleado() {
