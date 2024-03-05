@@ -7,7 +7,7 @@ import { UserModel } from '../../../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  url = `${environment.urlLocal}user`;
+  url = `${environment.urlLocal}api/users`;
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { EmpleadoModel } from 'src/app/model/empleado';
   providedIn: 'root'
 })
 export class Empleadoservice {
-  url = `${environment.urlLocal}empleado`;
+  url = `${environment.urlLocal}api/empleados`;
 
   constructor(private http: HttpClient) { }
 
