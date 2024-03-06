@@ -19,9 +19,6 @@ export class UserService {
     return this.http.get(`${this.url}/${idUser}`).toPromise();
    }
 
-   UserLogin(email: string, password: string) {
-    return this.http.get(`${this.url}/${email}${password}`).toPromise();
-   }
    
    addUsers(user: UserModel) {
      return this.http.post(`${this.url}/`, user).toPromise();

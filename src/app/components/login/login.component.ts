@@ -7,6 +7,7 @@ import { Empleadoservice } from '../../services/empleado/empleado.service';
 /* SWEET ALERT */
 import Swal from 'sweetalert2';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
 
 const Toast = Swal.mixin({
   toast: true,
@@ -26,7 +27,7 @@ export class LoginComponent {
   EmpleadoModel = new EmpleadoModel();
   LoginModel =  new LoginModel();
   /*email: string;*/
-  constructor(public UserService: UserService, public EmpleadoService: Empleadoservice) {}
+  constructor(public LoginService: LoginService,public UserService: UserService, public EmpleadoService: Empleadoservice) {}
 
   arrUser:any[] = [];
   users: any;
@@ -62,11 +63,17 @@ export class LoginComponent {
    
   }
 
-  getUserLogin(data: UserModel){
-    this.UserService.UserLogin(data.strEmail, data.password).then((data: any) => {
+  getUserLogin(data: LoginModel){
+    this.LoginService.UserLogin(data).then((data: any) => {
       this.user = data;
       console.log(data);
       
+    }).catch((err: any) => {
+      
+      Toast.fire({
+            icon: 'error',
+            title: err.error
+            });
     });
   }
 

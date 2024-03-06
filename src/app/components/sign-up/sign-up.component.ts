@@ -25,8 +25,9 @@ export class SignUpComponent {
     strName: new FormControl(this.UserModel.strName, [Validators.required, Validators.maxLength(50)]),
     strEmail: new FormControl(this.UserModel.strEmail, [Validators.required, Validators.email]),
     nmbAge: new FormControl('', [Validators.required, Validators.maxLength(2)]),
-    nmbPhone: new FormControl(this.UserModel.nmbPhone, [Validators.required, Validators.minLength(7)]),
-    password: new FormControl(this.UserModel.password, [Validators.required, Validators.maxLength(50)])
+    nmbPhone: new FormControl(this.UserModel.nmbPhone, [Validators.required, Validators.maxLength(10)]),
+    password: new FormControl(this.UserModel.password, [Validators.required, Validators.maxLength(50)]),
+    blnActivo: new FormControl(true)
   });
   constructor(private UserService: UserService, private router: Router) { }
 
@@ -39,19 +40,20 @@ export class SignUpComponent {
         iconColor: '#473138'}); 
     }
     else {
-  //   this.UserService.addUsers(this.users).then((resp: any) => {
-    // this.router.navigate(['/']);
+      this.users = data.value;
+     this.UserService.addUsers(this.users).then((resp: any) => {
+     this.router.navigate(['/']);
     Toast.fire({
       title:'Usuario registrado correctamente',
       icon: 'success',
       iconColor: '#473138'});      
 
-  // }).catch((err) => {
-  //   Toast.fire({
-  //   icon: 'error',
-  //   title: err.error.msg
-  //   });
-  // });
+   }).catch((err) => {
+     Toast.fire({
+     icon: 'error',
+     title: err.error.msg
+     });
+   });
     }
   }
 }
